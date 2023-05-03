@@ -3,5 +3,9 @@ class Car {
   String model;
   double pricePerDay;
 
-  Car({required this.brand, required this.model, required this.pricePerDay});
+  Car({
+    required this.brand,
+    required this.model,
+    required this.pricePerDay,
+  });
 }
