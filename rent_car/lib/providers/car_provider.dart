@@ -9,6 +9,8 @@ class CarListProvider extends ChangeNotifier {
       return ToyotaCars.cars;
     } else if (brand == 'Ford') {
       return FordCars.cars;
+    } else if (brand == 'Chevrolet') {
+      return ChevroletCars.cars;
     } else {
       return [];
     }

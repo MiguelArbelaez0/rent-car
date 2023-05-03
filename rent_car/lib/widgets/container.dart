@@ -64,8 +64,7 @@ class CustomContainer extends StatelessWidget {
         margin: margin,
         decoration: BoxDecoration(
           borderRadius: borderRadius,
-          color: color ??
-              Colors.transparent, // valor predeterminado de color transparente
+          color: color ?? Colors.transparent,
         ),
       ),
     );
