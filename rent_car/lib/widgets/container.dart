@@ -16,6 +16,7 @@ class CustomContainer extends StatelessWidget {
     this.borderRadius = const BorderRadius.all(Radius.circular(12)),
     required this.color,
     required this.onTap,
+    required Center child,
   }) : super(key: key);
 
   @override

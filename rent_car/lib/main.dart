@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rent_car/providers/car_provider.dart';
 import 'package:rent_car/routes/app_routes.dart';
-import 'package:rent_car/screens/splash/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());

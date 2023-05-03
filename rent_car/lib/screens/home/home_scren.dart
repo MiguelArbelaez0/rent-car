@@ -1,25 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+
 import 'package:rent_car/providers/car_provider.dart';
 import 'package:rent_car/widgets/container.dart';
 import '../../models/car_model.dart';
-import 'list_screen.dart';
 
 // class HomeScreen extends StatefulWidget {
-//   const HomeScreen({super.key});
+//   const HomeScreen({Key? key}) : super(key: key);
 
 //   @override
 //   _HomeScreenState createState() => _HomeScreenState();
 // }
 
 // class _HomeScreenState extends State<HomeScreen> {
-//   int _selectedContainer = -1;
+//   final CarListProvider _carListProvider = CarListProvider();
 
-//   void _onContainerTap(int index) {
-//     setState(() {
-//       _selectedContainer = index;
-//     });
-//   }
+//   String _selectedBrand = '';
+//   String _selectedBrandFord = '';
 
 //   @override
 //   Widget build(BuildContext context) {
@@ -33,29 +29,73 @@ import 'list_screen.dart';
 //               scrollDirection: Axis.horizontal,
 //               itemCount: 3,
 //               itemBuilder: (context, index) {
+//                 String brand = '';
+//                 if (index == 0) {
+//                   brand = 'Toyota';
+//                 } else if (index == 1) {
+//                   brand = 'Ford';
+//                 }
 //                 return CustomContainer(
 //                   height: 59,
 //                   width: 59,
 //                   margin: EdgeInsets.only(left: 31, right: 17, top: 111),
-//                   color: Colors.black,
+//                   color: Colors.grey.shade300,
 //                   onTap: () {
-//                     _onContainerTap(index);
+//                     setState(() {
+//                       if (brand == 'Toyota') {
+//                         _selectedBrand = brand;
+//                       } else if (brand == 'Ford') {
+//                         _selectedBrandFord = brand;
+//                       }
+//                     });
 //                   },
 //                 );
 //               },
 //             ),
 //           ),
-//           if (_selectedContainer >= 0)
-//             Expanded(
-//               child: ListView.builder(
-//                 itemCount: 5,
-//                 itemBuilder: (context, index) {
-//                   return ListTile(
-//                     title: Text('Item $index'),
-//                   );
-//                 },
-//               ),
+//           SizedBox(height: 11),
+//           Text(
+//             'Toyota Cars',
+//             style: TextStyle(
+//               fontSize: 20,
+//               fontWeight: FontWeight.bold,
 //             ),
+//           ),
+//           Expanded(
+//             child: ListView.builder(
+//               itemCount: _carListProvider.getCarsByBrand(_selectedBrand).length,
+//               itemBuilder: (context, index) {
+//                 Car car =
+//                     _carListProvider.getCarsByBrand(_selectedBrand)[index];
+//                 return ListTile(
+//                   title: Text(car.model),
+//                   subtitle: Text(car.pricePerDay.toString()),
+//                 );
+//               },
+//             ),
+//           ),
+//           SizedBox(height: 11),
+//           Text(
+//             'Ford Cars',
+//             style: TextStyle(
+//               fontSize: 20,
+//               fontWeight: FontWeight.bold,
+//             ),
+//           ),
+//           Expanded(
+//             child: ListView.builder(
+//               itemCount:
+//                   _carListProvider.getCarsByBrand(_selectedBrandFord).length,
+//               itemBuilder: (context, index) {
+//                 Car car =
+//                     _carListProvider.getCarsByBrand(_selectedBrandFord)[index];
+//                 return ListTile(
+//                   title: Text(car.model),
+//                   subtitle: Text(car.pricePerDay.toString()),
+//                 );
+//               },
+//             ),
+//           ),
 //         ],
 //       ),
 //     );
@@ -69,7 +109,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  CarListProvider _carListProvider = CarListProvider();
+  final CarListProvider _carListProvider = CarListProvider();
 
   String _selectedBrand = '';
 
@@ -83,27 +123,42 @@ class _HomeScreenState extends State<HomeScreen> {
             height: 200,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: 3,
+              itemCount: 2,
               itemBuilder: (context, index) {
                 String brand = '';
                 if (index == 0) {
                   brand = 'Toyota';
+                } else if (index == 1) {
+                  brand = 'Ford';
                 }
                 return CustomContainer(
                   height: 59,
                   width: 59,
                   margin: EdgeInsets.only(left: 31, right: 17, top: 111),
-                  color: Colors.black,
+                  color: _selectedBrand == brand
+                      ? Colors.blue
+                      : Colors.grey.shade300,
                   onTap: () {
                     setState(() {
                       _selectedBrand = brand;
                     });
                   },
+                  child: Center(
+                    child: Text(
+                      brand,
+                      style: TextStyle(
+                        color: _selectedBrand == brand
+                            ? Colors.white
+                            : Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
                 );
               },
             ),
           ),
-          SizedBox(height: 16),
+          SizedBox(height: 11),
           Text(
             'Cars',
             style: TextStyle(
@@ -111,7 +166,6 @@ class _HomeScreenState extends State<HomeScreen> {
               fontWeight: FontWeight.bold,
             ),
           ),
-          SizedBox(height: 16),
           Expanded(
             child: ListView.builder(
               itemCount: _carListProvider.getCarsByBrand(_selectedBrand).length,
