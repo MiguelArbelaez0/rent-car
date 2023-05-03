@@ -29,9 +29,9 @@ class RoutesApp {
           return MaterialPageRoute(
             builder: (_) => DetailScreen(
               car: Car(
-                brand: "Default brand",
-                model: "Default model",
-                pricePerDay: 0,
+                brand: carDetail.brand,
+                model: carDetail.model,
+                pricePerDay: carDetail.pricePerDay,
                 carDetail: carDetail,
               ),
               carDetail: carDetail,
