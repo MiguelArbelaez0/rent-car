@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:rent_car/providers/car_provider.dart';
+import 'package:rent_car/routes/app_routes.dart';
 import 'package:rent_car/screens/splash/splash_screen.dart';
 
 void main() {
@@ -11,7 +14,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MultiProvider(
+      providers: [ChangeNotifierProvider(create: (_) => CarListProvider())],
+      child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
           // This is the theme of your application.
@@ -25,6 +30,8 @@ class MyApp extends StatelessWidget {
           // is not restarted.
           primarySwatch: Colors.blue,
         ),
-        home: SplashScreen());
+        onGenerateRoute: RoutesApp.generateRoute,
+      ),
+    );
   }
 }

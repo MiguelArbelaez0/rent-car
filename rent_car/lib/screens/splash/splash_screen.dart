@@ -44,7 +44,9 @@ class SplashScreen extends StatelessWidget {
                         Color.fromRGBO(250, 250, 250, 1),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushReplacementNamed(context, 'home');
+                    },
                     child: Text(
                       'Let’s Go!',
                       style: TextStyle(
