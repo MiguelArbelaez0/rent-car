@@ -1,18 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:rent_car/uses%20cases/get_cars_by_brand.dart';
 
-import '../models/brand_cars.dart';
 import '../models/car_model.dart';
 
 class CarListProvider extends ChangeNotifier {
   List<Car> getCarsByBrand(String brand) {
-    if (brand == 'Toyota') {
-      return ToyotaCars.cars;
-    } else if (brand == 'Ford') {
-      return FordCars.cars;
-    } else if (brand == 'Chevrolet') {
-      return ChevroletCars.cars;
-    } else {
-      return [];
-    }
+    final GetCarsUseCase getCarsUseCase = GetCarsUseCase();
+
+    return getCarsUseCase.invoke(brand);
   }
 }
