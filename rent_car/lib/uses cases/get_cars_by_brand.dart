@@ -1,5 +1,4 @@
-import 'package:rent_car/data/local_data_sourece.dart';
-
+import '../data/local_data_source.dart';
 import '../models/car_model.dart';
 
 class GetCarsUseCase {
@@ -8,6 +7,7 @@ class GetCarsUseCase {
   LocalDataSoureFord localDataSoureFord = LocalDataSoureFord();
 
   LocalDataSoureChevrolet localDataSoureChevrolet = LocalDataSoureChevrolet();
+
   List<Car> invoke(String brand) {
     if (brand == "Toyota") {
       return localDataSoureToyota.getCars();
