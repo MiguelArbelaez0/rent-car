@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../models/car_model.dart';
 import '../models/detail_car.dart';
+import '../providers/car_provider.dart';
 
 class DetailScreen extends StatelessWidget {
   final Car car;
@@ -93,7 +95,11 @@ class DetailScreen extends StatelessWidget {
                             style: ButtonStyle(
                                 backgroundColor:
                                     MaterialStatePropertyAll(Colors.red)),
-                            onPressed: () {},
+                            onPressed: () async {
+                              await context
+                                  .read<CarListProvider>()
+                                  .sendWhatsAppMessage(car);
+                            },
                             child: Text("Booking"),
                           ),
                         ),
