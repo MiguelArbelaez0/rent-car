@@ -15,7 +15,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final CarListProvider _carListProvider = CarListProvider();
 
-  String _selectedBrand = '';
+  String _selectedBrand = 'bmw';
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
+          Container(
             height: 200,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
@@ -38,29 +38,45 @@ class _HomeScreenState extends State<HomeScreen> {
                 } else if (index == 2) {
                   brand = 'Chevrolet';
                 }
-                return CustomContainer(
-                  height: 59,
-                  width: 59,
-                  margin: EdgeInsets.only(left: 31, right: 17, top: 111),
-                  color: _selectedBrand == brand
-                      ? Colors.blue
-                      : Colors.grey.shade300,
-                  onTap: () {
-                    setState(() {
-                      _selectedBrand = brand;
-                    });
-                  },
-                  child: Center(
-                    child: Text(
+                return Column(
+                  children: [
+                    CustomContainer(
+                      height: 59,
+                      width: 59,
+                      margin: EdgeInsets.only(left: 31, right: 17, top: 111),
+                      color: _selectedBrand == brand
+                          ? Colors.white
+                          : Colors.grey.shade300,
+                      onTap: () {
+                        setState(() {
+                          _selectedBrand = brand;
+                        });
+                      },
+                      child: Center(
+                        child: Text(
+                          brand,
+                          style: TextStyle(
+                            color: _selectedBrand == brand
+                                ? Colors.black
+                                : Colors.grey,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 8,
+                    ),
+                    Text(
                       brand,
                       style: TextStyle(
                         color: _selectedBrand == brand
-                            ? Colors.white
-                            : Colors.black,
+                            ? Colors.black
+                            : Colors.grey,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                  ),
+                  ],
                 );
               },
             ),
