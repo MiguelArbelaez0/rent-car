@@ -2,8 +2,9 @@ import 'package:url_launcher/url_launcher.dart';
 
 class SendWhatsAppUseCase {
   Future<void> sendWhatsAppMessage(String message, String phoneNumber) async {
+    final formattedPhoneNumber = '+57$phoneNumber';
     final url =
-        'https://wa.link/lsh64a/3103971727?text=${Uri.encodeFull(message)}';
+        'https://wa.me/$formattedPhoneNumber?text=${Uri.encodeFull(message)}';
     if (await canLaunch(url)) {
       await launch(url);
     } else {
