@@ -21,10 +21,21 @@ class DetailScreen extends StatelessWidget {
       body: Column(
         children: [
           Container(
-            margin: EdgeInsets.only(top: 96),
-            color: Colors.amber,
-            width: 680,
-            height: 230,
+            decoration: BoxDecoration(
+              color: Colors.grey.shade300,
+              borderRadius: BorderRadius.circular(7),
+            ),
+            width: 36,
+            height: 37,
+            margin: EdgeInsets.only(top: 70, right: 280),
+            child: IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "home");
+                },
+                icon: Icon(
+                  Icons.arrow_back_ios_rounded,
+                  size: 25,
+                )),
           ),
           SizedBox(
             height: 32,
@@ -64,7 +75,7 @@ class DetailScreen extends StatelessWidget {
               child: Column(
                 children: [
                   SizedBox(
-                    height: 21,
+                    height: 150,
                   ),
                   Text(
                     "Specifications:\n${carDetail.specifications.join("\n")}",

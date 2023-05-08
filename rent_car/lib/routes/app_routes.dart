@@ -10,11 +10,11 @@ class RoutesApp {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case "/":
-        return MaterialPageRoute(builder: (_) => SplashScreen());
+        return MaterialPageRoute(builder: (_) => const SplashScreen());
       case "splash":
-        return MaterialPageRoute(builder: (_) => SplashScreen());
+        return MaterialPageRoute(builder: (_) => const SplashScreen());
       case "home":
-        return MaterialPageRoute(builder: (_) => HomeScreen());
+        return MaterialPageRoute(builder: (_) => const HomeScreen());
       case "detail":
         if (settings.arguments is Car) {
           Car car = settings.arguments as Car;
@@ -40,6 +40,6 @@ class RoutesApp {
         }
         break;
     }
-    return MaterialPageRoute(builder: (_) => HomeScreen());
+    return MaterialPageRoute(builder: (_) => const HomeScreen());
   }
 }

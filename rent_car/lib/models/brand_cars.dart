@@ -8,58 +8,64 @@ class ToyotaCars {
         model: 'Corolla',
         pricePerDay: 50.0,
         carDetail: CarDetail(
-            brand: 'Toyota',
-            model: 'Corolla',
-            description:
-                'The 2022 Corolla is here. Embrace the style and sophistication of this iconic sedan.',
-            pricePerDay: 50,
-            specifications: [
-              'Engine: 1.8L 4-cylinder',
-              'Horsepower: 139 hp @ 6,100 RPM',
-              'Torque: 126 lb-ft @ 3,900 RPM',
-              'Transmission: Continuously Variable Transmission',
-              'Top speed: 110 mph',
-              'Acceleration: 0-60 mph in 8.5 seconds',
-              'Fuel economy: 30 mpg city / 38 mpg highway'
-            ])),
+          brand: 'Toyota',
+          model: 'Corolla',
+          description:
+              'The 2022 Corolla is here. Embrace the style and sophistication of this iconic sedan.',
+          pricePerDay: 50,
+          specifications: [
+            'Engine: 1.8L 4-cylinder',
+            'Horsepower: 139 hp @ 6,100 RPM',
+            'Torque: 126 lb-ft @ 3,900 RPM',
+            'Transmission: Continuously Variable Transmission',
+            'Top speed: 110 mph',
+            'Acceleration: 0-60 mph in 8.5 seconds',
+            'Fuel economy: 30 mpg city / 38 mpg highway'
+          ],
+        ),
+        image: 'assets/corolla.png'),
     Car(
         brand: 'Toyota',
         model: 'Camry',
         pricePerDay: 60.0,
         carDetail: CarDetail(
-            brand: 'Toyota',
-            model: 'Camry',
-            description:
-                'The 2022 Camry is a perfect combination of style and performance.',
-            pricePerDay: 60,
-            specifications: [
-              'Engine: 2.5L 4-cylinder',
-              'Horsepower: 202 hp @ 6,600 RPM',
-              'Torque: 182 lb-ft @ 4,400 RPM',
-              'Transmission: 8-speed automatic',
-              'Top speed: 135 mph',
-              'Acceleration: 0-60 mph in 7.5 seconds',
-              'Fuel economy: 28 mpg city / 39 mpg highway'
-            ])),
+          brand: 'Toyota',
+          model: 'Camry',
+          description:
+              'The 2022 Camry is a perfect combination of style and performance.',
+          pricePerDay: 60,
+          specifications: [
+            'Engine: 2.5L 4-cylinder',
+            'Horsepower: 202 hp @ 6,600 RPM',
+            'Torque: 182 lb-ft @ 4,400 RPM',
+            'Transmission: 8-speed automatic',
+            'Top speed: 135 mph',
+            'Acceleration: 0-60 mph in 7.5 seconds',
+            'Fuel economy: 28 mpg city / 39 mpg highway'
+          ],
+        ),
+        image: 'assets/corolla.png'),
     Car(
         brand: 'Toyota',
         model: 'Rav4',
         pricePerDay: 70.0,
         carDetail: CarDetail(
-            brand: 'Toyota',
-            model: 'Rav4',
-            description:
-                'The 2022 RAV4 is designed to help you make the most of every moment.',
-            pricePerDay: 70,
-            specifications: [
-              'Engine: 2.5L 4-cylinder',
-              'Horsepower: 203 hp @ 6,600 RPM',
-              'Torque: 184 lb-ft @ 5,000 RPM',
-              'Transmission: 8-speed automatic',
-              'Top speed: 120 mph',
-              'Acceleration: 0-60 mph in 8 seconds',
-              'Fuel economy: 27 mpg city / 35 mpg highway'
-            ])),
+          brand: 'Toyota',
+          model: 'Rav4',
+          description:
+              'The 2022 RAV4 is designed to help you make the most of every moment.',
+          pricePerDay: 70,
+          specifications: [
+            'Engine: 2.5L 4-cylinder',
+            'Horsepower: 203 hp @ 6,600 RPM',
+            'Torque: 184 lb-ft @ 5,000 RPM',
+            'Transmission: 8-speed automatic',
+            'Top speed: 120 mph',
+            'Acceleration: 0-60 mph in 8 seconds',
+            'Fuel economy: 27 mpg city / 35 mpg highway'
+          ],
+        ),
+        image: 'assets/RAV4.png'),
   ];
 }
 
@@ -85,6 +91,7 @@ class FordCars {
           'Fuel economy: 28 mpg city / 34 mpg highway'
         ],
       ),
+      image: 'assets/ford-escape.png',
     ),
     Car(
       brand: 'Ford',
@@ -106,6 +113,7 @@ class FordCars {
           'Fuel economy: 27 mpg city / 35 mpg highway'
         ],
       ),
+      image: 'assets/ford-fiesta.png',
     ),
     Car(
       brand: 'Ford',
@@ -127,6 +135,7 @@ class FordCars {
           'Fuel economy: 20 mpg city / 24 mpg highway'
         ],
       ),
+      image: 'assets/f-150.png',
     ),
   ];
 }
@@ -152,6 +161,7 @@ class ChevroletCars {
           'Fuel economy: 30 mpg city / 38 mpg highway'
         ],
       ),
+      image: 'assets/spark.png',
     ),
     Car(
       brand: 'Chevrolet',
@@ -172,6 +182,7 @@ class ChevroletCars {
           'Fuel economy: 29 mpg city / 36 mpg highway'
         ],
       ),
+      image: 'assets/onix.png',
     ),
     Car(
       brand: 'Chevrolet',
@@ -192,6 +203,7 @@ class ChevroletCars {
           'Fuel economy: 30 mpg city / 37 mpg highway'
         ],
       ),
+      image: 'assets/sail.png',
     ),
     Car(
       brand: 'Chevrolet',
@@ -212,6 +224,7 @@ class ChevroletCars {
           'Fuel economy: 25 mpg city / 30 mpg highway'
         ],
       ),
+      image: 'assets/tracker.png',
     ),
   ];
 }

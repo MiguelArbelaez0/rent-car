@@ -24,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
+          SizedBox(
             height: 200,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
@@ -116,11 +116,15 @@ class _HomeScreenState extends State<HomeScreen> {
                         );
                       },
                       child: Container(
-                        margin: EdgeInsets.only(left: 27, right: 14),
                         decoration: BoxDecoration(
+                          color: Colors.white,
+                          image: DecorationImage(
+                            image: AssetImage(car.image ?? ""),
+                          ),
                           borderRadius: BorderRadius.circular(10),
                           border: Border.all(color: Colors.grey),
                         ),
+                        margin: EdgeInsets.only(left: 27, right: 14),
                         height: 260,
                         width: 198,
                         child: Column(
