@@ -15,7 +15,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final CarListProvider _carListProvider = CarListProvider();
 
-  String _selectedBrand = 'bmw';
+  String _selectedBrand = 'Toyota';
 
   @override
   Widget build(BuildContext context) {
