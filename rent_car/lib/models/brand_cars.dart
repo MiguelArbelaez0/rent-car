@@ -113,7 +113,7 @@ class FordCars {
           'Fuel economy: 27 mpg city / 35 mpg highway'
         ],
       ),
-      image: 'assets/ford-fiesta.png',
+      image: 'assets/ford_fiesta.png',
     ),
     Car(
       brand: 'Ford',

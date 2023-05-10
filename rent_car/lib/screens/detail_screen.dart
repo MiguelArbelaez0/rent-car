@@ -18,68 +18,93 @@ class DetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.grey.shade300,
-              borderRadius: BorderRadius.circular(7),
+      backgroundColor: Colors.grey,
+      body: SingleChildScrollView(
+        physics: NeverScrollableScrollPhysics(),
+        child: Column(
+          children: [
+            SizedBox(
+              height: 42,
             ),
-            width: 36,
-            height: 37,
-            margin: EdgeInsets.only(top: 70, right: 280),
-            child: IconButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, "home");
-                },
-                icon: Icon(
-                  Icons.arrow_back_ios_rounded,
-                  size: 25,
-                )),
-          ),
-          SizedBox(
-            height: 32,
-          ),
-          Container(
-            margin: EdgeInsets.only(left: 31, right: 31),
-            child: Column(
-              children: [
-                Container(
-                  margin: EdgeInsets.only(right: 282),
-                  child: Text(
-                    "${car.brand} ${car.model}",
-                    style: TextStyle(fontSize: 12),
-                    textAlign: TextAlign.start,
+            Container(
+              margin: EdgeInsets.only(left: 20),
+              color: Colors.grey,
+              height: 100.0,
+              child: Row(
+                children: [
+                  IconButton(
+                    icon: Icon(Icons.arrow_back),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                   ),
-                ),
-                SizedBox(
-                  height: 4,
-                ),
-                Text(
-                  "\n${carDetail.description}",
-                  style: TextStyle(fontSize: 20),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          SizedBox(
-            height: 21,
-          ),
-          Expanded(
-            child: Container(
-              margin: EdgeInsets.only(),
+            SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              height: 32,
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 31, right: 31),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Column(
+                    children: [
+                      Row(
+                        children: [
+                          Text(
+                            "${car.brand} ${car.model}",
+                            style: TextStyle(fontSize: 12),
+                            textAlign: TextAlign.start,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    constraints: BoxConstraints(
+                      minHeight: 100,
+                    ),
+                    child: Expanded(
+                      child: SingleChildScrollView(
+                        child: Text(
+                          "\n${carDetail.description}",
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 190,
+            ),
+            Container(
+              height: 299,
+              width: 390,
               decoration: BoxDecoration(
-                color: Colors.grey.shade900,
                 borderRadius: BorderRadius.circular(30),
               ),
               child: Column(
                 children: [
                   SizedBox(
-                    height: 150,
+                    height: 10,
                   ),
                   Text(
                     "Specifications:\n${carDetail.specifications.join("\n")}",
-                    style: TextStyle(fontSize: 16, color: Colors.white),
+                    style: TextStyle(fontSize: 16, color: Colors.black),
+                  ),
+                  SizedBox(
+                    height: 10,
                   ),
                   Row(
                     children: [
@@ -91,37 +116,34 @@ class DetailScreen extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white),
+                            color: Colors.black),
                       ),
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(22),
-                        child: Container(
-                          margin: EdgeInsets.only(
-                            top: 15,
-                            left: 24,
-                          ),
-                          width: 189,
-                          height: 59,
-                          child: ElevatedButton(
-                            style: ButtonStyle(
-                                backgroundColor:
-                                    MaterialStatePropertyAll(Colors.red)),
-                            onPressed: () async {
-                              await context
-                                  .read<CarListProvider>()
-                                  .sendWhatsAppMessage(car);
-                            },
-                            child: Text("Booking"),
+                      Expanded(
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: Container(
+                            margin: EdgeInsets.only(right: 24),
+                            child: ElevatedButton(
+                              style: ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStatePropertyAll(Colors.red)),
+                              onPressed: () async {
+                                await context
+                                    .read<CarListProvider>()
+                                    .sendWhatsAppMessage(car);
+                              },
+                              child: Text("Booking"),
+                            ),
                           ),
                         ),
-                      )
+                      ),
                     ],
                   )
                 ],
               ),
             ),
-          )
-        ],
+          ],
+        ),
       ),
     );
   }
