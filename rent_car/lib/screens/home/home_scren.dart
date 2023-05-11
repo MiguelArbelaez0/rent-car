@@ -15,7 +15,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final CarListProvider _carListProvider = CarListProvider();
 
-  String _selectedBrand = '';
+  String _selectedBrand = 'Toyota';
 
   @override
   Widget build(BuildContext context) {
@@ -38,29 +38,45 @@ class _HomeScreenState extends State<HomeScreen> {
                 } else if (index == 2) {
                   brand = 'Chevrolet';
                 }
-                return CustomContainer(
-                  height: 59,
-                  width: 59,
-                  margin: EdgeInsets.only(left: 31, right: 17, top: 111),
-                  color: _selectedBrand == brand
-                      ? Colors.blue
-                      : Colors.grey.shade300,
-                  onTap: () {
-                    setState(() {
-                      _selectedBrand = brand;
-                    });
-                  },
-                  child: Center(
-                    child: Text(
+                return Column(
+                  children: [
+                    CustomContainer(
+                      height: 59,
+                      width: 59,
+                      margin: EdgeInsets.only(left: 31, right: 17, top: 111),
+                      color: _selectedBrand == brand
+                          ? Colors.white
+                          : Colors.grey.shade300,
+                      onTap: () {
+                        setState(() {
+                          _selectedBrand = brand;
+                        });
+                      },
+                      child: Center(
+                        child: Text(
+                          brand,
+                          style: TextStyle(
+                            color: _selectedBrand == brand
+                                ? Colors.black
+                                : Colors.grey,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 8,
+                    ),
+                    Text(
                       brand,
                       style: TextStyle(
                         color: _selectedBrand == brand
-                            ? Colors.white
-                            : Colors.black,
+                            ? Colors.black
+                            : Colors.grey,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                  ),
+                  ],
                 );
               },
             ),
@@ -100,11 +116,15 @@ class _HomeScreenState extends State<HomeScreen> {
                         );
                       },
                       child: Container(
-                        margin: EdgeInsets.only(left: 27, right: 14),
                         decoration: BoxDecoration(
+                          color: Colors.white,
+                          image: DecorationImage(
+                            image: AssetImage(car.image ?? ""),
+                          ),
                           borderRadius: BorderRadius.circular(10),
                           border: Border.all(color: Colors.grey),
                         ),
+                        margin: EdgeInsets.only(left: 27, right: 14),
                         height: 260,
                         width: 198,
                         child: Column(

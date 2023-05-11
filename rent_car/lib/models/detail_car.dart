@@ -3,6 +3,7 @@ class CarDetail {
   final String model;
   final String description;
   final double pricePerDay;
+
   final List<String> specifications;
 
   CarDetail({
