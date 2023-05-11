@@ -44,7 +44,7 @@ class ToyotaCars {
             'Fuel economy: 28 mpg city / 39 mpg highway'
           ],
         ),
-        image: 'assets/corolla.png'),
+        image: 'assets/camry.png'),
     Car(
         brand: 'Toyota',
         model: 'Rav4',
